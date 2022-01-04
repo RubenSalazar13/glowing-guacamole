@@ -1,16 +1,21 @@
 <?php
-
 session_start();
+include('functions2.php');
+isAllowed();
 
-include('db.php');
-include('component.php');
+include("db.php");
+include("component.php");
 
-$db = new CreateDb("Library", "BOOKS");
+$db = new CreateDb("CATALOG", "PRODUCT");
 
+if (isset($_POST['qty'])){
+     $NumToChng = $_POST['qty'];
+}
+    
 if (isset($_POST['remove'])){
   if ($_GET['action'] == 'remove'){
       foreach ($_SESSION['cart'] as $key => $value){
-          if($value["product_id"] == $_GET['id']){
+          if($value["product_id"] == $_GET['ProductID']){
               unset($_SESSION['cart'][$key]);
               echo "<script>alert('Product has been Removed...!')</script>";
               echo "<script>window.location = 'cart.php'</script>";
@@ -18,31 +23,27 @@ if (isset($_POST['remove'])){
       }
   }
 }
-
-
+if(isset($_POST['update'])){
+    $qty=$POST['qty'];
+}
 ?>
 
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Cart</title>
+<!DOCTYPE html>
+<html>
+ <head>
+<title>Catalog</title>
+<link href="https://fonts.googleapis.com/css?family=Bree+Serif&display=swap" rel="stylesheet"> 
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" rel="stylesheet">
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.css" />
-
-    <!-- Bootstrap CDN -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-    <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <body class="bg-light">
 
 <?php
-    require_once ('php/header.php');
+
+if ($granted) {
+    include('back.php');
 ?>
 
 <div class="container-fluid">
@@ -61,16 +62,16 @@ if (isset($_POST['remove'])){
                         $result = $db->getData();
                         while ($row = mysqli_fetch_assoc($result)){
                             foreach ($product_id as $id){
-                                if ($row['id'] == $id){
-                                    cartElement($row['product_image'], $row['product_name'],$row['product_price'], $row['id']);
-                                    $total = $total + (int)$row['product_price'];
+                                if ($row['ProductID'] == $id){
+                                    cartElement($row['image'], $row['ProductName'],$row['ProductPrice'], $row['ProductID']);
+                                    $total = $total + (int)$row['ProductPrice'];
                                 }
                             }
                         }
-                    }else{
-                        echo "<h5>Cart is Empty</h5>";
+                    }else{ 
+                        echo "<h1>Cart is Empty</h1>";
                     }
-
+                 
                 ?>
 
             </div>
@@ -90,17 +91,19 @@ if (isset($_POST['remove'])){
                                 echo "<h6>Price (0 items)</h6>";
                             }
                         ?>
-                        <h6>Delivery Charges</h6>
+                        <h6>Quantity</h6>
                         <hr>
-                        <h6>Amount Payable</h6>
+                        <h6>Total</h6>
+
                     </div>
                     <div class="col-md-6">
                         <h6>$<?php echo $total; ?></h6>
-                        <h6 class="text-success">FREE</h6>
-                        <hr>
+                        <h6><?php echo "{$NumToChng} Traveler(s)"; ?></h6></h6>
+                        <div class="pt-4">
                         <h6>$<?php
-                            echo $total;
+                            echo $total*+$NumToChng;
                             ?></h6>
+                    <a class="btn btn-primary" name="pricebtn" href="purchaseordered.php" role="button" style="width: 150px;">Place Order</a><div class="pt-2">
                     </div>
                 </div>
             </div>
@@ -114,5 +117,11 @@ if (isset($_POST['remove'])){
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<?php
+}else{
+
+     echo '<h1>Please Log In</h1>';
+}
+?>
 </body>
 </html>

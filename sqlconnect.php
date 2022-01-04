@@ -5,14 +5,14 @@ if ($_SERVER['HTTP_HOST'] == "localhost")
   define("HOST", "localhost");
   define("USER", "root");
   define("PASS", "");
-  define("BASE", "CATALOG");
+  define("BASE", "rubensal_login");
 }
 else
 {
   define("HOST", "localhost:3306");
-  define("USER", "rubensal_Ruben");
+  define("USER", "rubenspo_ruben");
   define("PASS", "NEBURS13neburs88!");
-  define("BASE", "rubensal_login");
+  define("BASE", "rubenspo_CATALOG");
 }
 //2 make a connection
   $con = mysqli_connect(HOST, USER, PASS, BASE);

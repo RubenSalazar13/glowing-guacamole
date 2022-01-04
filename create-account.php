@@ -6,8 +6,8 @@ if ($_SERVER['HTTP_HOST'] == "localhost")
 {
   define("HOST", "localhost");
   define("USER", "root");
-  define("PASS", "1550");
-  define("BASE", "passwordHashing");
+  define("PASS", "");
+  define("BASE", "rubensal_login");
 }
 else
 {

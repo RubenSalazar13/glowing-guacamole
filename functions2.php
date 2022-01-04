@@ -13,7 +13,7 @@ function isAllowed($username="", $password="")
 	}
 	else
     {
-  $con = mysqli_connect("localhost:3306", "rubensal_Ruben", "NEBURS13neburs88!", "rubensal_login");
+  $con = mysqli_connect("localhost", "root", "", "rubensal_login");
   //$con = mysqli_connect("localhost", "root", "1550", "passwordHashing");
   $sql = "SELECT * FROM users WHERE username = '$username';";
   $query = mysqli_query($con, $sql);
