@@ -2,17 +2,17 @@
 //1 define constants
 if ($_SERVER['HTTP_HOST'] == "localhost")
 {
-  define("HOST", "localhost");
-  define("USER", "root");
+  define("HOST", "");
+  define("USER", "");
   define("PASS", "");
-  define("BASE", "rubensal_login");
+  define("BASE", "");
 }
 else
 {
-  define("HOST", "localhost:3306");
-  define("USER", "rubenspo_ruben");
-  define("PASS", "NEBURS13neburs88!");
-  define("BASE", "rubenspo_CATALOG");
+  define("HOST", "");
+  define("USER", "");
+  define("PASS", "");
+  define("BASE", "");
 }
 //2 make a connection
   $con = mysqli_connect(HOST, USER, PASS, BASE);
