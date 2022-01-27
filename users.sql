@@ -1,0 +1,86 @@
+-- phpMyAdmin SQL Dump
+-- version 4.9.7
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost:3306
+-- Generation Time: Jan 03, 2022 at 12:11 PM
+-- Server version: 5.7.36-cll-lve
+-- PHP Version: 7.3.28
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `rubensal_login`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `username` varchar(55) NOT NULL,
+  `password` varchar(288) NOT NULL,
+  `secret_code` varchar(8) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `username`, `password`, `secret_code`) VALUES
+(56, 'wtf3', '82a0bcfb83b558745401e763cb874970d981bb044f935093eb18f8b127b43a3846d3f466459949dbaa81bff4070a965a4cc61e0d259f11dc4fcad7e4b759d6ab', 'D5&nY8#!'),
+(55, 'wtf2', '82a0bcfb83b558745401e763cb874970d981bb044f935093eb18f8b127b43a3846d3f466459949dbaa81bff4070a965a4cc61e0d259f11dc4fcad7e4b759d6ab', 'D5&nY8#!'),
+(54, 'James F', '82a0bcfb83b558745401e763cb874970d981bb044f935093eb18f8b127b43a3846d3f466459949dbaa81bff4070a965a4cc61e0d259f11dc4fcad7e4b759d6ab', 'D5&nY8#!'),
+(53, 'Rambo', 'b47c125a0fe6a65f5b9881bd5e5a92399b8e07db7443841c8ea4b7e4c288d3dd6294e9b716217e81f78b4aa9190a8b1ae17b0a51baf48b866bf4dc01f0b0ff76', 'D5&nY8#!'),
+(52, 'Jack', '679210db82f8092ec018bfc777a10eafbf66a7c9a339f13aab06de579a143e6427342eea5526c0f05c422448dbb6152f30e60c9694ecd966c52eaa6833f60f4d', 'D5&nY8#!'),
+(51, 'Rick', '82a0bcfb83b558745401e763cb874970d981bb044f935093eb18f8b127b43a3846d3f466459949dbaa81bff4070a965a4cc61e0d259f11dc4fcad7e4b759d6ab', 'D5&nY8#!'),
+(50, 'Juan', '82a0bcfb83b558745401e763cb874970d981bb044f935093eb18f8b127b43a3846d3f466459949dbaa81bff4070a965a4cc61e0d259f11dc4fcad7e4b759d6ab', 'D5&nY8#!'),
+(49, 'wtf', '82a0bcfb83b558745401e763cb874970d981bb044f935093eb18f8b127b43a3846d3f466459949dbaa81bff4070a965a4cc61e0d259f11dc4fcad7e4b759d6ab', 'D5&nY8#!'),
+(48, 'Rimz', '82a0bcfb83b558745401e763cb874970d981bb044f935093eb18f8b127b43a3846d3f466459949dbaa81bff4070a965a4cc61e0d259f11dc4fcad7e4b759d6ab', 'D5&nY8#!'),
+(47, 'Rupperts', '82a0bcfb83b558745401e763cb874970d981bb044f935093eb18f8b127b43a3846d3f466459949dbaa81bff4070a965a4cc61e0d259f11dc4fcad7e4b759d6ab', 'D5&nY8#!'),
+(45, 'Ruppert', '82a0bcfb83b558745401e763cb874970d981bb044f935093eb18f8b127b43a3846d3f466459949dbaa81bff4070a965a4cc61e0d259f11dc4fcad7e4b759d6ab', 'D5&nY8#!'),
+(46, 'Ruppertz', '98b5bbac222e8e6969bfb5f74d81485ef9745288bf9638782c1a25ea06f513235c6dc11499eb188dd516ae72ce0e16cc9b535aa109329aaae84078c4a680ce92', 'D5&nY8#!'),
+(44, 'Ruben', '98b5bbac222e8e6969bfb5f74d81485ef9745288bf9638782c1a25ea06f513235c6dc11499eb188dd516ae72ce0e16cc9b535aa109329aaae84078c4a680ce92', 'D5&nY8#!'),
+(57, 'Champ', '82a0bcfb83b558745401e763cb874970d981bb044f935093eb18f8b127b43a3846d3f466459949dbaa81bff4070a965a4cc61e0d259f11dc4fcad7e4b759d6ab', 'abc123'),
+(58, 'Rambo 2', 'b9c9e63a246b2dffaa0fe8256d44e8b0e8f35727887c1b2fe603ded28ab5fb901c62b93fb9ea08cac6d9c0899d2e5e6e2ebd7c38df9aa1c590cc4c6ca6e1c686', 'abc123'),
+(59, 'RubenZ', '98b5bbac222e8e6969bfb5f74d81485ef9745288bf9638782c1a25ea06f513235c6dc11499eb188dd516ae72ce0e16cc9b535aa109329aaae84078c4a680ce92', 'abc123'),
+(60, 'Pancho', '1816a23032a497b97cec9b192e12a4b765854396d215e80dd0a92793f1b908ba077b9d17d94ae24bdd0c045c2f86c5a8c846d7aefdd2834c5957fdc66b92e4cf', 'abc123'),
+(61, 'bsmith', '846ea79f361332be3b70836cad68904ffb94574a84e6c1e769ea2b2bc39dcbb4e741bfb0711883b883cd91b65a692441fb303382b91110a8572987a70af220c4', 'abc123'),
+(62, 'pjones', 'f4582da53d45a339676bc0a408ca363273bc93ec25d30529bb0ac297ee08d89300b926c61dd0e190211ca5b1f77127f392891470111837ed24f3fc89a09d48b7', 'abc123');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
