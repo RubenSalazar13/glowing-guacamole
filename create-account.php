@@ -13,7 +13,7 @@ else
 {
   define("HOST", "localhost:3306");
   define("USER", "rubensal_Ruben");
-  define("PASS", "NEBURS13neburs88!");
+  define("PASS", "");
   define("BASE", "rubensal_login");
 }
 //2 make a connection
