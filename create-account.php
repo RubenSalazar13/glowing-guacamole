@@ -1,5 +1,4 @@
 <?php
-//******/opt/lampp/bin/mysql -uroot -p1550//******
 
 //1 define constants
 if ($_SERVER['HTTP_HOST'] == "localhost")
